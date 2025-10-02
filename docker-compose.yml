@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  spotify-app:
+    build: .
+    container_name: spotify-recommender
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./spotify_clean.csv:/app/spotify_clean.csv
+      - ./spotify_model.pkl:/app/spotify_model.pkl
+    restart: unless-stopped
